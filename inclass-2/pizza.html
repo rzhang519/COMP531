@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form name="myForm" onsubmit="return validate()">
+  Name:<br>
+  <input id="name" type="text" name="name" placeholder="your name" required>
+  <br>
+  Address:<br>
+  <input type="text" name="address" placeholder="delievery address" required>
+  <br>
+  Phone Number:xxx-xxx-xxxx<br>
+  <input type="text" name="phoneNumber" placeholder="xxx-xxx-xxxx" pattern='\d\d\d' required>
+
+  <br>
+  <u>Pizza size</u> 
+  <br>
+  <input type="radio" name="size" value="Large"> Large
+  <input type="radio" name="size" value="Medium"> Medium
+  <input type="radio" name="size" value="Small"> Small
+
+
+  <br>
+  <u>Pizza toppings</u> 
+  <br>
+  <input type="checkbox" name="topping" value="Sausage"> Sausage
+  <input type="checkbox" name="topping" value="Pepperoni"> Pepperoni
+  <input type="checkbox" name="topping" value="Olives"> Olives
+  <input type="checkbox" name="topping" value="Anchovies"> Anchovies
+  <input type="checkbox" name="topping" value="Onions"> Onions
+
+<br>
+<button type="submit">Place Order</button>
+<button type="reset">clear</button>
+
+</form>
+
+
+<script>
+  // function validate(){
+  //   // var name = document.forms["myForm"]["name"];
+  //   // if (name == null || name == ""){
+  //   //     alert("name is required");
+  //   // }
+
+  //   return false;
+  }
+</script>
+
+
+
+
+</body>
+</html>
+
