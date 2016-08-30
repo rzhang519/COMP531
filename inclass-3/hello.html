@@ -1,0 +1,75 @@
+<h1>In class exercise 1 </h1>
+
+<h3> My name: Rui Zhang </h3>
+
+
+<body onload="onloading()">
+	
+	
+
+
+	<p>Students from Rice love owls</p>
+
+	<br/>
+	<p> Click <a href="http://www.rice.edu">here</a> to visit our school websites!</p>
+
+	<br/>
+	<br/>
+	<img src="https://make.wordpress.org/core/files/2016/02/2A-3-1.jpg" title="Rice Owl">
+
+	<p> During my last trip, I went to central America, visting Costa Rica, Cuba and Mexico. It was a lof fun to experience different cultures and tried different local foods. The people, in general, are very friendly and warm. It was also an interesting experience traveling in places where no effecitve communication can be made due to the language barrier. We visited some ancient building as well as lots of wonderful beaches and mountains. It was still pretty hot even in January so we did some scuba diving which is an awesome experinence</p>
+
+
+	<textarea rows="4" cols="50" id="output">
+	Please let me know what you think
+	</textarea>
+	<br/>
+	<span id="indicator"> 15 </span>
+	<input type="button" value="Pause" onclick="pauseCountDown()">
+	<input type="button" value="Resume" onclick="resumeCountDown()">
+
+	<br>
+	<input type="submit" value="Submit">
+	<input type="button" value="Clear" onclick="eraseText();"> 
+
+	<script type="text/javascript">
+
+		var pause = false;
+
+		function onloading(){
+			setTimeout(fiveSecondTimeout, 5000);
+			setInterval(countdown, 1000);
+		}
+
+		function eraseText() {
+	    	document.getElementById("output").value = "";
+		}
+
+
+		function fiveSecondTimeout(){
+			window.alert("the page will redirect when the counter reaches zero");
+		}
+
+		function pauseCountDown(){pause = true;}
+
+		function resumeCountDown(){pause = false;}
+
+		function countdown(){
+			var current = document.getElementById("indicator").innerHTML;
+			var curInt = parseInt(current);
+			if(!pause){
+				if (curInt !== 0){
+					document.getElementById("indicator").innerHTML = curInt - 1;
+				}else if(curInt === 0){
+					window.location = "https://www.clear.rice.edu/comp431/sample/hello.html";
+				}
+			}
+		}
+
+
+
+	</script>
+	<hr/>
+	<br/>
+
+</body>
