@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="author" content="Rui Zhang">
+		
+		<h2>Form Processor</h2>
+
+		<style type="text/css">
+			table, th, td {
+				border: 1px solid black;
+				border-collapse: collapse;
+			}
+			th, td {
+    			padding: 5px;
+			}
+			th {
+    			text-align: left;
+			}
+
+		</style>
+	</head>
+	<body onload="processFormData()">
+
+	<p id="debug"></p>
+	<script type="text/javascript">
+		function processFormData(){
+			var uri = decodeURIComponent(location.search.substring(1));
+
+			var vals = uri.split("&");
+
+			document.getElementById("accountName").innerHTML = vals[0].split("=")[1];
+			document.getElementById("displayName").innerHTML = vals[1].split("=")[1];
+			document.getElementById("emailAddress").innerHTML = vals[2].split("=")[1];
+			document.getElementById("phoneNUmber").innerHTML = vals[3].split("=")[1];
+			document.getElementById("birthday").innerHTML = vals[4].split("=")[1];
+			document.getElementById("zipCode").innerHTML = vals[5].split("=")[1];
+			document.getElementById("password").innerHTML = vals[6].split("=")[1];
+			document.getElementById("passwordConfirmation").innerHTML = vals[7].split("=")[1];
+			document.getElementById("timestamp").innerHTML = new Date(parseInt(vals[8].split("=")[1]));
+		}	
+	</script>
+
+		<table>
+			<tr>
+				<th>key</th>
+				<th>Value</th>
+			</tr>
+
+			<tr>
+				<td>Account Name</td>
+				<td id="accountName"></td>
+			</tr>
+
+			<tr>
+				<td>Display Name</td>
+				<td id="displayName"></td>
+			</tr>
+
+			<tr>
+				<td>Email Address</td>
+				<td id="emailAddress"></td>
+			</tr>
+
+			<tr>
+				<td>Phone Number</td>
+				<td id="phoneNUmber"></td>
+			</tr>
+
+
+			<tr>
+				<td>Date of birth</td>
+				<td id="birthday"></td>
+			</tr>
+
+
+			<tr>
+				<td>Zip Code</td>
+				<td id="zipCode"></td>
+			</tr>
+
+			<tr>
+				<td>Password</td>
+				<td id="password"></td>
+			</tr>
+
+			<tr>
+				<td>Password</td>
+				<td id="passwordConfirmation"></td>
+			</tr>
+
+			<tr>
+				<td>Timestamp</td>
+				<td id="timestamp"></td>
+			</tr>
+		</table>
+
+	</body>
+</html>
+

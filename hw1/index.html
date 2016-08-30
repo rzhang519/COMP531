@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Rui Zhang">
+    <h2>Welcome to RiceBook</h2>
+</head>
+<body onload="setHiddenDate()">
+
+    <form name="myForm" action="formProcessor.html" method="Get">
+     
+        Account Name:<br>
+        <input  type="text" name="accountName" placeholder="your name" pattern="[a-zA-Z][a-zA-Z0-9_.-]*" title="Account name could contain uppercase letter, lowercase letter and numbers but cannot start with numbers" required>
+        <br>
+
+        Display Name(optional):<br>
+        <input type="text" name="displayName" placeholder="the name you want to be displayed">
+        <br>
+
+        Email Address:<br>
+        <input type="text" name="emailAddress" placeholder="your email address" pattern="[a-zA-Z0-9_-]*[@][a-zA-Z0-9_.-]*[.][a-zA-Z0-9_.-]*" title="Email address should be in the format of a@b.c where a, b and c could be combination of uppercase letter, lowercase letter, numbers, underscore('_') and dash('-')" required>
+        <br>
+
+        Phone Number: xxx-xxx-xxxx<br>
+        <input type="text" name="phoneNumber" placeholder="xxx-xxx-xxxx" pattern="\d{3}[-]\d{3}[-]\d{4}"" title="Phone number should be in the format of xxx-xxx-xxxx" required>
+        <br>
+
+        Date of birth: yyyy-mm-dd<br>
+        <input type="text" name="birthday" id="birthday" placeholder="your birthday" pattern="^(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$" title="Phone number should be in the format of yyyy-mm-dd" required>
+        <br>
+
+
+        Zip code:<br>
+        <input type="text" name="zipCode" placeholder="5-digit zipcode" pattern="\d{5}" title="Zip code should be a five digit number" required>
+        <br> 
+
+        Password:<br>
+        <input type="password" name="password" id="password" placeholder="password for account" required>
+        <br>
+
+         Password confirmation:<br>
+        <input type="password" name="passwordComfirmation" id="passwordConfirmation" placeholder="make sure they match" required>  
+
+        <input type="hidden" name="tstamp" id="hiddenDate">
+
+
+        <script type="text/javascript">
+
+            function submitClick(){
+                return underageAlert() && comparePassword();
+            }
+
+            function setHiddenDate(){
+                document.getElementById("hiddenDate").value = Date.now();
+            }
+
+            function underageAlert(){
+
+                var bday = document.getElementById("birthday").value;
+                var elements = bday.split('-');
+
+                var year = elements[0];
+                var month = elements[1];
+                var day = elements[2];
+
+
+                var d = new Date();
+                var yearDiff = d.getFullYear() -  parseInt(year);
+                var monthDiff = d.getMonth() - parseInt(month);
+                var dayDiff = d.getDate() - parseInt(day);
+
+                if (yearDiff < 18 ||
+                        (yearDiff == 18 && monthDiff < 0) ||
+                        (yearDiff == 18 && monthDiff == 0 && dayDiff < 0)){
+                    window.alert("Underage: you need to be at least 18 to register");
+                    return false;
+                }
+
+                return true;
+            }
+
+            function comparePassword(){
+
+                var p1 = document.getElementById("password").value;
+
+                var p2 = document.getElementById("passwordConfirmation").value;
+                
+                if (p1 != p2){
+                    window.alert("passwords do not match");
+                }   
+
+                return (p1 == p2);
+            }
+        </script>
+
+
+        <br>
+        <br>
+
+
+    <button type="submit" onclick="return submitClick()">Submit</button>
+    <button type="reset">clear</button>
+
+    </form>
+
+</body>
+</html>
+
