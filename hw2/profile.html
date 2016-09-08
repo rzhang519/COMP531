@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Rui Zhang">
+    <h2>Welcome to RiceBook</h2>
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <script type="text/javascript" src="profile.js"></script>
+
+</head>
+<body>
+
+<div class="section">
+    <p class="item">Display Name:<br></p>
+    <input id="displayNameInput" class="inputBox" type="text" name="displayName" placeholder="the name you want to be displayed" > <span id="displayNameVal">Peanut butter</span>
+    <br>
+</div>
+
+
+<div class="section">
+    <p class="item">Email Address:<br></p>
+    <input id="emailInput" class="inputBox" type="text" name="emailAddress" placeholder="your email address" pattern="[a-zA-Z0-9_-]*[@][a-zA-Z0-9_.-]*[.][a-zA-Z0-9_.-]*" title="Email address should be in the format of a@b.c where a, b and c could be combination of uppercase letter, lowercase letter, numbers, underscore('_') and dash('-')" > <span id="emailVal">rz8@rice.edu</span>
+    <br>
+</div>
+
+
+<div class="section">
+    <p class="item">Phone Number:<br></p>
+    <input id="phoneInput" class="inputBox" type="text" name="phoneNumber" placeholder="xxx-xxx-xxxx" pattern="\d{3}[-]\d{3}[-]\d{4}" title="Phone number should be in the format of xxx-xxx-xxxx" > <span id="phoneVal">123-456-7890</span>
+    <br>
+</div>
+
+
+<div class="section">
+    <p class="item">Zip code:<br></p>
+    <input id="zipInput" class="inputBox" type="text" name="zipCode" placeholder="5-digit zipcode" pattern="\d{5}" title="Zip code should be a five digit number" > <span id="zipVal"> 77005 </span>
+    <br> 
+</div>
+
+
+<div class="section">
+    <p class="item">Password:<br></p>
+    <input id="passwordInput" class="inputBox"  name="password" id="password" placeholder="password for account" > <span id="passwordVal">123456</span>
+    <br>
+</div>
+
+<div class="section">
+    <p class="item">Password confirmation:<br></p>
+    <input id="passwordConfirmationInput" class="inputBox" name="passwordComfirmation" id="passwordConfirmation" placeholder="make sure they match">  <span id="passwordConfirmationVal">123456</span>
+</div>
+
+
+
+    <br>
+    <br>
+ 
+
+    <button class="profileBtn" id="updateBtn">Update</button>
+    <a href="main.html"><button class="profileBtn">To main page</button></a>
+
+
+
+</body>
+</html>
+
